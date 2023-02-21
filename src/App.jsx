@@ -1,4 +1,11 @@
-import Search from './components/Search';
+import React, { useState } from "react";
+import MovieCard from "./components/MovieCard";
+import Search from "./components/Search";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Home from "./routes/Home";
+import Detail from ".routes/Detail";
+import Favorites from "./routes/Favorites";
+import Edit from "./routes/Edit";
 
 const App = () => {
   return (
@@ -29,7 +36,16 @@ const App = () => {
               <div className="pb-8 space-y-1">{/* navigation */}</div>
             </nav>
           </div>
-          <main className="lg:col-span-9">{/* routing */}</main>
+          <main className="lg:col-span-9">
+            <BrowserRouter>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/detail" element={<Detail />} />
+                <Route path="/favorites" element={<Favorites />} />
+                <Route path="/edit" element={<Edit />} />
+              </Routes>
+            </BrowserRouter>
+          </main>
         </div>
       </div>
     </div>

@@ -1,3 +1,6 @@
+import React, { useState } from "react";
+import Search from "./Search";
+
 const MovieCard = () => {
   return (
     <li className="col-span-1 flex flex-col text-center bg-white rounded-lg shadow divide-y divide-gray-200">

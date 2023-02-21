@@ -9,7 +9,6 @@ const Search = () => {
   const [movies, setMovies] = useState("");
 
   // Functions
-
   // Search for a movie
   const search = (event) => {
     setSearchTerm(event.target.value);
