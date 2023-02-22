@@ -13,6 +13,12 @@ export function useSearchData() {
 }
 
 export function useMovieData() {
+  const movieDataContext = useContext(MovieResultContext);
+  if (movieDataContext === undefined || movieDataContext === null) {
+    throw new Error(
+      "MovieResultContext must be used within the MovieResultContextProvider"
+    );
+  }
   return useContext(MovieResultContext);
 }
 
@@ -37,12 +43,10 @@ export function SearchProvider({ children }) {
   };
 
   return (
-    <SearchResultContext.Provider value={search}>
+    <SearchResultContext.Provider value={{ search, movies }}>
       <MovieResultContext.Provider value={movies}>
         {children}
       </MovieResultContext.Provider>
     </SearchResultContext.Provider>
   );
 }
-
-export { MovieResultContext };
