@@ -1,27 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import { useSearchData } from "../hooks/SearchContext";
 
-// Global variables
-const omdbApi = `http://www.omdbapi.com/?apikey=1a993ee0&s=`;
-
-const Search = () => {
-  // State variables
-  const [searchTerm, setSearchTerm] = useState("");
-  const [movies, setMovies] = useState("");
-
-  // Functions
-  // Search for a movie
-  const search = (event) => {
-    setSearchTerm(event.target.value);
-    fetch(`${omdbApi}${searchTerm}`)
-      .then((response) => response.json())
-      .then((json) => setMovies(json))
-      .catch((error) => {
-        console.error(error);
-      });
-    console.log(movies);
-  };
-
-  // Hooks
+const SearchContextComponent = () => {
+  const searchResult = useSearchData();
 
   return (
     <div className="w-full">
@@ -43,7 +24,7 @@ const Search = () => {
           </svg>
         </div>
         <input
-          onChange={search}
+          onChange={searchResult}
           className="block w-full bg-white border border-gray-300 rounded-md py-2 pl-10 pr-3 text-sm placeholder-gray-500 focus:outline-none focus:text-gray-900 focus:placeholder-gray-400 focus:ring-1 focus:ring-rose-500 focus:border-rose-500 sm:text-sm"
           placeholder="Search"
           type="search"
@@ -53,4 +34,4 @@ const Search = () => {
   );
 };
 
-export default Search;
+export default SearchContextComponent;
