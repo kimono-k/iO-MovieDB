@@ -2,7 +2,7 @@ import React from "react";
 import { useSearchData } from "../hooks/SearchContext";
 
 const SearchContextComponent = () => {
-  const { search, movies } = useSearchData();
+  const { search } = useSearchData();
 
   return (
     <div className="w-full">

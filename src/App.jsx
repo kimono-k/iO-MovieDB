@@ -1,16 +1,11 @@
-import React, { useState } from "react";
-import MovieCard from "./components/MovieCard";
+import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Favorites from "./routes/Favorites";
 import Edit from "./routes/Edit";
 import SearchContextComponent from "./components/SearchContextComponent";
-import {
-  useSearchData,
-  SearchProvider,
-  useMovieData,
-} from "./hooks/SearchContext";
+import { SearchProvider } from "./hooks/SearchContext";
 
 const App = () => {
   return (
