@@ -15,7 +15,7 @@ const MovieCard = ({ movie }) => {
               <dd className="text-gray-500 text-sm">{movie.Year}</dd>
             </dl>
           </div>
-        </div>
+        </div>  
       </li>
     </Link>
   );

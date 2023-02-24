@@ -1,5 +1,5 @@
 import MovieCard from "../components/MovieCard";
-import { useMovieData } from "../hooks/SearchContext";
+import { useMovieData } from "../hooks/SearchProvider";
 
 const Home = () => {
   // Custom Hook

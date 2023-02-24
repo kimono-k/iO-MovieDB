@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Global variables
 const omdbApi = `http://www.omdbapi.com/?apikey=1a993ee0&s=`;
 
-// Function argument for the custom hook
+// Custom Hooks
 const SearchResultContext = React.createContext(); // Used as a provider
 const MovieResultContext = React.createContext();
 
@@ -27,6 +28,7 @@ export function SearchProvider({ children }) {
   // State variables
   const [searchTerm, setSearchTerm] = useState("");
   const [movies, setMovies] = useState("");
+  const navigate = useNavigate();
 
   // Functions
   // Search for a movie
@@ -42,8 +44,13 @@ export function SearchProvider({ children }) {
     return movies;
   };
 
+  // Redirect to home route while searching
+  const navigateHandler = () => {
+    return navigate("/");
+  };
+
   return (
-    <SearchResultContext.Provider value={{ search, movies }}>
+    <SearchResultContext.Provider value={{ search, navigateHandler }}>
       <MovieResultContext.Provider value={movies}>
         {children}
       </MovieResultContext.Provider>
