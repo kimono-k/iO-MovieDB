@@ -1,18 +1,14 @@
 const Toggle = () => {
   return (
     <div className="flex flex-row-reverse">
-      <button
-        type="button"
-        className="relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2"
-        role="switch"
-        aria-checked="false"
-      >
-        <span
-          aria-hidden="true"
-          className="pointer-events-none inline-block h-5 w-5 rounded-full bg-white shadow transform ring-0 transition ease-in-out duration-200"
-        ></span>
-      </button>
-      <b>Favorite: </b>
+      <label className="relative flex justify-between items-center group p-2 text-xl">
+        <b>Add to favorites</b>
+        <input
+          type="checkbox"
+          className="absolute left-1/2 -translate-x-1/2 w-full h-full peer appearance-none rounded-md"
+        />
+        <span className="w-16 h-10 flex items-center flex-shrink-0 ml-4 p-1 bg-gray-300 rounded-full duration-300 ease-in-out peer-checked:bg-green-400 after:w-8 after:h-8 after:bg-white after:rounded-full after:shadow-md after:duration-300 peer-checked:after:translate-x-6 group-hover:after:translate-x-1"></span>
+      </label>
     </div>
   );
 };

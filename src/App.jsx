@@ -4,6 +4,7 @@ import Home from "./routes/Home";
 import Detail from "./routes/Detail";
 import Favorites from "./routes/Favorites";
 import Edit from "./routes/Edit";
+import HeaderTitle from "./components/HeaderTitle";
 import SearchContextComponent from "./components/SearchContextComponent";
 import { SearchProvider } from "./hooks/SearchProvider";
 
@@ -12,6 +13,7 @@ const App = () => {
     <BrowserRouter>
       <SearchProvider>
         <div className="min-h-full">
+          <HeaderTitle />
           <header className="bg-white shadow-sm lg:static lg:overflow-y-visible">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
@@ -37,13 +39,17 @@ const App = () => {
                 >
                   {/* navigation */}
                   <div className="pb-8 space-y-1">
-                    <ul>
-                      <li>
-                        <a href="/">Home</a>
-                      </li>
-                      <li>
-                        <a href="/favorites">Favorites</a>
-                      </li>
+                    <ul className="grid gap-2 ">
+                      <a href="/">
+                        <li className="text-left w-48 bg-gray-300 hover:bg-gray-200 text-black font-medium py-2 px-4 rounded">
+                          Home
+                        </li>
+                      </a>
+                      <a href="/favorites">
+                        <li className="text-left w-48 bg-gray-300 hover:bg-gray-200 text-black font-medium py-2 px-4 rounded">
+                          Favorites
+                        </li>
+                      </a>
                     </ul>
                   </div>
                 </nav>
